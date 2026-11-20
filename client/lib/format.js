@@ -19,3 +19,13 @@ export function formatEpisodeLabel(number, duration) {
   const ep = `Ep. ${String(number).padStart(2, "0")}`;
   return duration ? `${ep} (${duration} min)` : ep;
 }
+
+export function calcReadTime(blocks = []) {
+  const words = blocks
+    .map((b) => b.text || "")
+    .join(" ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
