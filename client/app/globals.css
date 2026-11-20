@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-body: var(--font-lora), Georgia, serif;
+  --font-label: var(--font-marcellus), "Marcellus", Georgia, serif;
+}
+
+body {
+  font-family: var(--font-lora), Georgia, serif;
+  text-rendering: optimizeLegibility;
+}
+
+/* Cormorant has a small x-height: give headings a little more presence */
+.font-display {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+h1.font-display,
+h2.font-display {
+  line-height: 1.12;
+}
+
+/* visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* gsap animations are skipped for these users (see ScrollAnimations.jsx) */
