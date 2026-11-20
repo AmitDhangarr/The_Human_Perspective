@@ -121,7 +121,7 @@ export default async function Home() {
           </p>
           {/* blog posts */}
           <div className="mt-10 grid gap-8 text-left sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, i) => (
+            {posts.map((post:any, i:number) => (
               <PostCard key={post._id} post={post} index={i} />
             ))}
           </div>
