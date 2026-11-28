@@ -26,8 +26,8 @@ function Footer() {
         </div>
       </div>
 
-      <footer className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-8 text-center md:flex-row md:items-start md:justify-between md:px-8 md:text-left">
-        <div className="link-section-1 space-y-1">
+      <footer className="mx-auto flex justify-center items-center">
+        {/* <div className="link-section-1 space-y-1">
           <p className="font-label">info@mysite.com</p>
           <p className="font-label">123-456-789</p>
         </div>
@@ -35,13 +35,16 @@ function Footer() {
           <address className="font-label not-italic">
             500 Terry Francine <br /> St,San Francisco, CA 94158
           </address>
-        </div>
-        <div className="link-section-3 space-y-1">
-          <Link href="/privacypolicy" className="block font-label underline">
+        </div> */}
+        <div className="link-section-3 space-y-1 flex justify-evenly items-center w-1/2">
+           <Link href="/sitemap.xml" className="block font-label underline">
+           Sitemap
+          </Link>
+          <Link href="/privacy-policy" className="block font-label underline">
             Privacy Policy
           </Link>
           <Link
-            href="/accessibilitystatements"
+            href="/accessibility-statements"
             className="block font-label underline"
           >
             Accessibility Statements
@@ -52,7 +55,7 @@ function Footer() {
       <VisitorCounter />
       <div className="flex items-center justify-center px-6 pb-6 pt-2 text-center">
         &copy;
-        <p className="pl-3 font-label">amitdhangar.in 2026 - 2027</p>
+        <p className="pl-3 font-label">thehumanperspective.amitdhangar.in 2026 - 2027</p>
       </div>
     </div>
   );

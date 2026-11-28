@@ -7,12 +7,44 @@ import { getEpisodes, getPodcast } from "@/lib/content";
 
 export const metadata = { title: "The Human Perspective Podcast - The Human Perspective" };
 
+const podcastSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastSeries',
+  name: 'The Human Perspective',
+  url: 'https://thehumanperspective.amitdhangar.in/',
+  description: 'Conversations that nourish the spirit and illuminate the soul.',
+  author: {
+    '@type': 'Person',
+    '@id': 'https://amitdhangar.in',
+    name: 'Amit Dhangar',
+  },
+  episode: [
+    {
+      '@type': 'PodcastEpisode',
+      episodeNumber: 1,
+      name: "The Pilgrim's Path",
+      description: 'A conversation on finding meaning in the journey, not just the destination.',
+      timeRequired: 'PT28M',
+      associatedMedia: {
+        '@type': 'VideoObject',
+        url: 'https://youtube.com/amitdhangar',
+      },
+    },
+  ],
+};
+
 async function Podcast() {
   const [episodes, podcast] = await Promise.all([getEpisodes(), getPodcast()]);
   return (
     <div>
       <Header />
       <main>
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(podcastSchema).replace(/</g, '\\u003c'),
+        }}
+      />
         {/* section - 1  */}
         <section className="mx-auto flex max-w-4xl flex-col items-center px-6 py-12 text-center md:py-20">
           <h1

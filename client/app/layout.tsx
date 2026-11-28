@@ -33,6 +33,20 @@ export const metadata: Metadata = {
     "The Human Perspective is a quiet space for spiritual contemplation: reflections, conversations and practices for everyday life.",
 };
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://thehumanperspective.amitdhangar.in/',
+  name: 'The Human Perspective',
+  url: 'https://thehumanperspective.amitdhangar.in/',
+  description: 'A collection of writings and conversations dedicated to exploring the quieter, deeper currents of faith.',
+  publisher: {
+    '@type': 'Person',
+    '@id': 'https://amitdhangar.in/',
+    name: 'Amit Dhangar',
+  },
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -40,6 +54,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cormorant.variable} ${lora.variable} ${marcellus.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema).replace(/</g, '\\u003c'),
+          }}
+        />
         <AuthProvider>
           {children}
           <AuthModal />

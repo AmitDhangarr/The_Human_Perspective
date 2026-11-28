@@ -10,10 +10,10 @@ import { MenuIcon, CloseIcon, ChevronIcon } from "@/components/icons.jsx";
 import { useAuth } from "@/components/auth/AuthProvider.jsx";
 
 const links = [
-  { href: "/aboutus", label: "About" },
-  { href: "/podcasts", label: "Podcast" },
+  { href: "/about", label: "About" },
+  { href: "/podcast", label: "Podcast" },
   { href: "/blog", label: "Blog" },
-  { href: "/contactus", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 const linkCls =

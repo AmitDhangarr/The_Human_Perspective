@@ -1,0 +1,9 @@
+User-agent : *
+Disallow : /admin/ 
+Disallow : /login/
+Disallow : /register/
+Disallow : /*?
+Disallow : /*.php$
+Disallow : /studio
+
+Sitemap: https://thehumanperspective.amitdhangar.in/sitemap.xml

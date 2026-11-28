@@ -4,11 +4,30 @@ import ContactForm from "@/components/ContactForm.jsx";
 
 export const metadata = { title: "Contact us - The Human Perspective" };
 
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact - The Human Perspective',
+  url: 'https://thehumanperspective.amitdhangar.in/',
+  mainEntity: {
+    '@type': 'Person',
+    '@id': 'https://amitdhangar.in',
+    name: 'Amit Dhangar',
+    email: 'amitdhangar.work@gmail.com',
+  },
+};
+
 function ContactUs() {
   return (
     <div>
       <Header />
       <main>
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactSchema).replace(/</g, '\\u003c'),
+        }}
+      />
         {/* contact form */}
         <section className="mx-auto flex w-full max-w-xl flex-col items-center px-6 py-12 md:py-20">
           <div className="text-center">

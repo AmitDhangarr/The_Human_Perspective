@@ -11,11 +11,52 @@ export const metadata: Metadata = {
   description: "a brief introduction about our work,goals and future plans",
 };
 
+const aboutSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    dateCreated: '2026-01-01T00:00:00+05:30',
+    dateModified: '2026-11-28T00:00:00+05:30',
+    mainEntity: {
+      '@type': 'Person',
+      '@id': 'https://amitdhangar.in',
+      name: 'Amit Dhangar',
+      url: 'https://amitdhangar.in',
+      image: 'https://amitdhangar.in',
+      jobTitle: 'Author & Podcast Host',
+      description:
+        'Writer and host of The Human Perspective, exploring spiritual contemplation, faith, and quieter currents of everyday life.',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'The Human Perspective',
+        url: 'https://thehumanperspective.amitdhangar.in/',
+      },
+      knowsAbout: [
+        'Spirituality',
+        'Contemplative Practices',
+        'Faith',
+        'Mindfulness',
+      ],
+      sameAs: [
+        'https://amitdhangar.in',
+        'https://youtube.com/amitdhangar',
+        'https://linkedin.com/digitalamitdhangar',
+        'https://x.com/AmitDhangar',
+      ],
+    },
+  };
+
 function About() {
   return (
     <div>
       <Header overlay />
       <main>
+          <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutSchema).replace(/</g, '\\u003c'),
+        }}
+      />
+
         {/* hero-section */}
         <section className="relative">
           <div
@@ -86,11 +127,11 @@ function About() {
               data-anim="fade-up"
               className="p-2 font-display text-2xl md:text-3xl"
             >
-              About Bastien Lefevre
+              About Amit Dhangar
             </h3>
             <p data-anim="fade-up" className="p-1">
-              Bastien is a writer and theologian with a passion for
-              contemplative traditions
+              Amit Dhangar is a SEO Specialist with a  strong passion for
+              philosophy & related Subjects.
             </p>
           </div>
           <div
@@ -110,7 +151,7 @@ function About() {
               data-anim="fade-up"
               className="font-display text-2xl leading-snug md:text-4xl"
             >
-              Bastien work is inspired by the <br className="hidden md:block" />{" "}
+              Amit Dhangar's work is inspired by the <br className="hidden md:block" />{" "}
               belief that every life holds a sacred{" "}
               <br className="hidden md:block" /> story waiting to be told
             </h3>

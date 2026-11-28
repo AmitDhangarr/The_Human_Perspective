@@ -36,10 +36,49 @@ export default async function BlogPost({ params }) {
 
   const authorName = post.author?.name || "Admin";
 
+  const blogPostSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  image: post.coverImage,
+  datePublished: post.publishedAt,
+  dateModified: post.updatedAt,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://amitdhangar.in{post.slug}`,
+  },
+
+  author: {
+    '@type': 'Person',
+    name: 'Amit Dhangar',
+    url: 'https://amitdhangar.in',
+    sameAs: [
+      'https://youtube.com',
+      'https://linkedin.com',
+    ],
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'The Human Perspective',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://amitdhangar.in',
+    },
+  },
+};
+
+
   return (
     <div>
       <Header />
       <main>
+        <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPostSchema).replace(/</g, '\\u003c'),
+        }}
+      />
         {/* categories nav */}
         <div className="mx-auto max-w-3xl px-5 pt-6 md:px-8">
           <CategoryNav categories={categories} active={post.category?.slug} />
