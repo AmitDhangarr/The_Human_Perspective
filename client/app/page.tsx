@@ -170,7 +170,7 @@ export default async function Home() {
             </Link>
           </div>
           <div className="flex flex-col gap-2">
-            {episodes.map((ep) => (
+            {episodes.map((ep:any) => (
               <EpisodeCard key={ep._id} episode={ep} text="summary" />
             ))}
           </div>

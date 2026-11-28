@@ -87,3 +87,16 @@ function fallbackPosts({ category, limit }) {
   if (category) l = l.filter((p) => p.category?.slug === category);
   return limit ? l.slice(0, limit) : l;
 }
+
+
+export async function getPodcast({ limit } = {}) {
+  const list = await load(
+    `*[_type=="podcastEpisode"]|order(number asc){
+      _id, number, duration, title, summary, description, listenUrl,
+      "image": { "src": image.asset->url + "?w=1600&auto=format", "alt": image.alt }
+    }`,
+    {},
+    fallback.episodes
+  );
+  return limit ? list.slice(0, limit) : list;
+}
